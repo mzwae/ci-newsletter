@@ -7,7 +7,7 @@ class Signup_model extends CI_Model
         parent::__construct();
     }
 
-    
+
     //Inserts user's singup data in the signup table
     //Accepts one argument: $data array
     public function add($data)
