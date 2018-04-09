@@ -4,8 +4,8 @@
     <p>You can change your settings below or unsubscribe. Plese check your preferences.</p>
     <div class="row">
       <?php echo validation_errors(); ?>
-      <?php echo form_open('/signup/settings'); ?>
-      <!-- <?php echo form_input($signup_email); ?> -->
+      <?php echo form_open('/signup/update'); ?>
+      <?php echo form_input($signup_email); ?>
       <?php echo form_checkbox($signup_opt1);?> Option 1<br>
       <?php echo form_checkbox($signup_opt2);?> Option 2<br>
       <?php echo form_checkbox($signup_unsub); ?> Unsubscribe <br>

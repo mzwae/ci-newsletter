@@ -15,6 +15,7 @@ class Signup_model extends CI_Model
         if ($this->db->insert('signups', $data)) {
             return true;
         } else {
+
             return false;
         }
     }
@@ -23,6 +24,7 @@ class Signup_model extends CI_Model
     //Accepts one argument: $data array
     public function edit($data)
     {
+      print_r($data);
         $this->db->where('signup_email', $data['signup_email']);
         if ($this->db->update('signups', $data)) {
             return true;
