@@ -86,8 +86,9 @@ class Signup extends MY_Controller
                 $signup_opt2 = $row->signup_opt2;
             }
         } else {
-            // redirect('signup');
-            die("email not found");
+            $this->session->set_flashdata('email_not_found', 'Email Not Found!');
+            redirect('signup');
+            // die("email not found");
         }
 
         $data['signup_email'] = array(
@@ -134,9 +135,13 @@ class Signup extends MY_Controller
             $data = array('signup_email' => $this->input->post('signup_email'));
 
             if ($this->Signup_model->delete($data)) {
-                die("You've successfully unsubscribed");
+              $this->session->set_flashdata('unsub_success', 'You have been unsubscribed successfully!');
+              redirect('signup');
+                // die("You have been unsubscribed");
             } else {
-                die("Unsubscribe Error");
+              $this->session->set_flashdata('unsub_error', 'There was an error in unsubscribing you, please try again!');
+              redirect('signup');
+                // die("There was an error in unsubscribing you");
             }
         } else {
             $data = array(
@@ -145,11 +150,14 @@ class Signup extends MY_Controller
         'signup_opt2' => $this->input->post('signup_opt2')
       );
             if ($this->Signup_model->edit($data)) {
-                die("Your settings have been updated successfully!");
+              $this->session->set_flashdata('update_success', 'Your settings have been upadted successfully!');
+              redirect('signup');
+                // die("Your settings have been upadted successfully!");
             } else {
-                die("Editing Settings Error");
+              $this->session->set_flashdata('update_error', 'There was an error in updating your settings!');
+              redirect('signup');
+                // die("There was an error in updating your settings!");
             }
         }
     }
-    // }
 }

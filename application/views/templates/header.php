@@ -30,3 +30,21 @@
 </nav>
 
 <div class="container">
+  <?php
+
+  if ($this->session->flashdata('email_not_found')) {
+      echo '<p class="alert alert-danger text-center"><b>' . $this->session->flashdata('email_not_found') . '</b></p>';
+  }
+  if ($this->session->flashdata('unsub_success')) {
+      echo '<p class="alert alert-success text-center"><b>' . $this->session->flashdata('unsub_success') . '</b></p>';
+  }
+  if ($this->session->flashdata('update_success')) {
+      echo '<p class="alert alert-success text-center"><b>' . $this->session->flashdata('update_success') . '</b></p>';
+  }
+  if ($this->session->flashdata('unsub_error')) {
+      echo '<p class="alert alert-danger text-center"><b>' . $this->session->flashdata('unsub_error') . '</b></p>';
+  }
+  if ($this->session->flashdata('update_error')) {
+      echo '<p class="alert alert-danger text-center"><b>' . $this->session->flashdata('update_error') . '</b></p>';
+  }
+   ?>
